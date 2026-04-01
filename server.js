@@ -17,8 +17,11 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Connect to Database
-connectDB();
+// Connect to Database Wrapper for Serverless
+app.use(async (req, res, next) => {
+    await connectDB();
+    next();
+});
 
 // Middleware
 app.use(cors());
