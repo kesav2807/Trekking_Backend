@@ -17,7 +17,7 @@ const createOrder = async (req, res) => {
         const order = await razorpay.orders.create(options);
         res.status(201).json(order);
     } catch (error) {
-        console.error("RAZORPAY ORDER FAILURE:", error);
+        console.error("RAZORPAY ORDER FAIURE:", error);
         res.status(500).json({ 
             message: error.description || error.message || "Razorpay API configuration failed",
             error: error
