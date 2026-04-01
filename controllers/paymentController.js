@@ -36,7 +36,7 @@ const verifyPayment = async (req, res) => {
 
         if (razorpay_signature === expectedSign) {
             const booking = await Booking.findById(bookingId);
-            if (!booking) return res.status(404).json({ message: "Booking not found" });
+            if (!booking) return res.status(404).json({ message: "Booking no found" });
 
             const trip = await Trip.findById(booking.tripId);
             if (trip) {
